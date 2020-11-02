@@ -1,0 +1,12 @@
+language: python
+python: 3.9
+cache:
+  directories:
+    - $HOME/.cache/pkgcheck
+
+install:
+  - pip install pkgcheck 
+before_script:
+  - pmaint sync gentoo
+script:
+  - pkgcheck scan -v --exit
