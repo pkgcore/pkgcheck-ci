@@ -6,8 +6,15 @@ cache:
     - $HOME/.cache/pkgcheck
 
 install:
-  - pip install pkgcheck 
+  # use pkgcheck from git for --exit support, revert to pypi on new release
+  - pip install https://github.com/pkgcore/snakeoil/archive/master.tar.gz#egg=snakeoil
+  - pip install https://github.com/pkgcore/pkgcore/archive/master.tar.gz#egg=pkgcore
+  - pip install https://github.com/pkgcore/pkgcheck/archive/master.tar.gz#egg=pkgcheck
 before_script:
-  - pmaint sync gentoo
+  - sudo mkdir -p /etc/portage /var/db/repos/gentoo
+  - sudo ln -s /var/db/repos/gentoo/profiles/default/linux/amd64/17.1 /etc/portage/make.profile
+  # force user PATH to be used to include pip installed binaries
+  - sudo env "PATH=$PATH" pmaint sync gentoo
 script:
-  - pkgcheck scan -v --exit
+  # sudo used in order to support squashfs archive repo mounting
+  - sudo env "PATH=$PATH" pkgcheck scan -v --exit
