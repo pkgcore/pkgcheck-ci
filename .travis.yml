@@ -4,6 +4,7 @@ cache:
   pip: true
   directories:
     - $HOME/.cache/pkgcheck
+    - /var/db/repos/gentoo
 
 install:
   # use pkgcheck from git for --exit support, revert to pypi on new release
