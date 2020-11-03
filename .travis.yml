@@ -7,7 +7,7 @@ cache:
 
 install:
   # use pkgcheck from git for --exit support, revert to pypi on new release
-  - pip install https://github.com/pkgcore/pkgcheck/archive/master.tar.gz#egg=pkgcheck
+  - pip install https://github.com/pkgcore/pkgcheck/archive/master.tar.gz
 before_script:
   # force PATH to include pip installed executables
   - sudo env "PATH=$PATH" pmaint sync gentoo
