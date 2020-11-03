@@ -11,7 +11,7 @@ install:
   - pip install https://github.com/pkgcore/pkgcore/archive/master.tar.gz#egg=pkgcore
   - pip install https://github.com/pkgcore/pkgcheck/archive/master.tar.gz#egg=pkgcheck
 before_script:
-  # force PATH to include pip installed binaries
+  # force PATH to include pip installed executables
   - sudo env "PATH=$PATH" pmaint sync gentoo
 script:
   # run as root to support squashfs repo mounting
