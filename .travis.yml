@@ -11,8 +11,7 @@ install:
   - pip install https://github.com/pkgcore/pkgcore/archive/master.tar.gz#egg=pkgcore
   - pip install https://github.com/pkgcore/pkgcheck/archive/master.tar.gz#egg=pkgcheck
 before_script:
-  - sudo mkdir -p /etc/portage /var/db/repos/gentoo
-  - sudo ln -s /var/db/repos/gentoo/profiles/default/linux/amd64/17.1 /etc/portage/make.profile
+  - sudo mkdir -p /var/db/repos/gentoo
   # force user PATH to be used to include pip installed binaries
   - sudo env "PATH=$PATH" pmaint sync gentoo
 script:
