@@ -1,0 +1,19 @@
+name: pkgcheck
+
+on:
+  push:
+    branches:
+      - main
+      - action
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: pkgcheck scan
+      uses: pkgcore/pkgcheck-action@v1
+      with:
+        args: --keywords=-UnusedProfileDirs
