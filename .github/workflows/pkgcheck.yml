@@ -31,8 +31,6 @@ jobs:
     - name: Install pkgcheck
       run: |
         pip install --upgrade pip
-        # pkgcore git required for repos.conf update -- drop on new release
-        pip install "pkgcore @ https://github.com/pkgcore/pkgcore/archive/master.tar.gz#egg=pkgcore"
         pip install pkgcheck
 
     - name: Sync gentoo repo
