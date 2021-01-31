@@ -4,6 +4,7 @@ cache:
   pip: true
   directories:
     - $HOME/.cache/pkgcheck
+    - $HOME/.cache/pkgcore
 
 install:
   - pip install pkgcheck
