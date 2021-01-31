@@ -40,4 +40,4 @@ jobs:
       run: sudo env "PATH=$PATH" pmaint regen --dir ~/.cache/pkgcheck/repos .
 
     - name: Run pkgcheck
-      run: sudo env "PATH=$PATH" pkgcheck scan --exit
+      run: sudo env "PATH=$PATH" pkgcheck --color y scan --exit

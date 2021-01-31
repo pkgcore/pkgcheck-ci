@@ -15,4 +15,4 @@ before_script:
   - sudo env "PATH=$PATH" pmaint regen --dir "$HOME/.cache/pkgcheck/repos" .
 script:
   # run as root to support squashfs repo mounting
-  - sudo env "PATH=$PATH" pkgcheck scan -v --exit
+  - sudo env "PATH=$PATH" pkgcheck --color y scan --exit
