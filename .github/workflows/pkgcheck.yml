@@ -33,6 +33,9 @@ jobs:
         pip install --upgrade pip
         pip install pkgcheck
 
+    # Note that sudo is needed in order to mount the sqfs gentoo repo archive
+    # and `env "PATH=$PATH"` is required to force PATH to include pip installed
+    # executables when running via sudo.
     - name: Sync gentoo repo
       run: sudo env "PATH=$PATH" pmaint sync gentoo
 
