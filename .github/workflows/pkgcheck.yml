@@ -2,9 +2,9 @@ name: pkgcheck
 
 on:
   push:
-    branches: [main,master]
+    branches: [ $default-branch ]
   pull_request:
-    branches: [main,master]
+    branches: [ $default-branch ]
 
 jobs:
   build:
