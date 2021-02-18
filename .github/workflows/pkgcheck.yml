@@ -13,35 +13,5 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
-
-    - name: Configure pkgcheck cache
-      uses: actions/cache@v2
-      with:
-        path: |
-          ~/.cache/pkgcheck
-          ~/.cache/pkgcore
-        # unique value to force cache save on every run
-        key: pkgcheck-${{ github.run_id }}
-        # static value to restore the previous run's cache
-        restore-keys: pkgcheck-
-
-    - name: Install pkgcheck
-      run: |
-        pip install --upgrade pip
-        pip install pkgcheck
-
-    # Note that sudo is needed in order to mount the sqfs gentoo repo archive
-    # and `env "PATH=$PATH"` is required to force PATH to include pip installed
-    # executables when running via sudo.
-    - name: Sync gentoo repo
-      run: sudo env "PATH=$PATH" pmaint sync gentoo
-
-    - name: Regen repo metadata
-      run: sudo env "PATH=$PATH" pmaint regen --dir ~/.cache/pkgcheck/repos .
-
-    - name: Run pkgcheck
-      run: sudo env "PATH=$PATH" pkgcheck --color y scan --exit
+    - name: pkgcheck scan
+      uses: pkgcore/pkgcheck-action@v1
